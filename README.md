@@ -1,2 +1,59 @@
-# waypoint
-Trail-finder and trip-planner - CCGC-5003 term project
+# Waypoint
+
+A trail-finder and trip-planner built with Python and Django.  
+Course: CCGC-5003 Application Programming — Summer 2026  
+Student: Akinnirun Oluwaseyi (N10009815)
+
+---
+
+## How to Run
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/akinnirunseyi-web/waypoint.git
+cd waypoint
+```
+
+**2. Create and activate virtual environment**
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+
+**3. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Run migrations**
+```bash
+python3 manage.py migrate
+```
+
+**5. Start the server**
+```bash
+python3 manage.py runserver
+```
+
+Open your browser at: **http://127.0.0.1:8000**
+
+---
+
+## MVT Pattern
+
+Django follows the MVT (Model-View-Template) pattern:
+
+- Model — defines the data and talks to the database
+- View — contains the logic; receives a request and returns a response  
+- Template — the HTML that presents data to the user
+
+The request flow is:
+Browser → URL → View → Model (if needed) → Template → Browser
+
+## Project Structure
+
+waypoint_core/ — Pure Python domain engine (Weeks 7-8)
+waypoint/ — Django project settings folder
+manage.py — Django command-line tool
+requirements.txt — Pinned dependencies
+.gitignore — Excludes env/, db.sqlite3, pycache
