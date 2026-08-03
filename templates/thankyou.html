@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You — Waypoint</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'report' %}">Report a Trail</a>
+        <a href="{% url 'search' %}">Search</a>
+    </nav>
+
+    <div class="container">
+        <h1>Thank you, {{ name }}!</h1>
+        <p>Your trail report for <strong>{{ trail_name }}</strong> has been received.</p>
+        <p>We will follow up at <strong>{{ email }}</strong> if needed.</p>
+        <p>Your note: <em>{{ note }}</em></p>
+        <a href="{% url 'home' %}" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>
