@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search — Waypoint</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'report' %}">Report a Trail</a>
+        <a href="{% url 'search' %}">Search</a>
+    </nav>
+
+    <div class="container">
+        <h1>Search Trails</h1>
+        <form method="GET" action="{% url 'search' %}">
+            <label>Search
+                <input type="text" name="q" value="{{ query }}">
+            </label>
+            <button type="submit" class="btn">Search</button>
+        </form>
+
+        {% if query %}
+            <p>You searched for: <strong>{{ query }}</strong></p>
+            <p>Full search results coming in a future update.</p>
+        {% else %}
+            <p>Enter a trail name above to search.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
