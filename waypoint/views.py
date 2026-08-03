@@ -61,3 +61,25 @@ def search(request):
         "query": query,
     }
     return render(request, "search.html", context)
+
+def catalog(request):
+    """
+    Renders the trail catalog page with a hardcoded list of trails.
+
+    Parameters:
+    request (HttpRequest): The incoming HTTP request.
+
+    Returns:
+    HttpResponse: Renders catalog.html with a list of trail dictionaries.
+    """
+    trails = [
+        {"name": "Maple Ridge Trail",     "distance": 12.4, "elevation": 400,  "difficulty": "moderate", "is_open": True},
+        {"name": "Summit Peak Route",     "distance": 8.7,  "elevation": 950,  "difficulty": "expert",   "is_open": True},
+        {"name": "Riverside Walk",        "distance": 5.2,  "elevation": 80,   "difficulty": "easy",     "is_open": True},
+        {"name": "Wilderness Loop",       "distance": 34.0, "elevation": 1800, "difficulty": "expert",   "is_open": False},
+        {"name": "Cedar Valley Path",     "distance": 9.1,  "elevation": 310,  "difficulty": "moderate", "is_open": True},
+        {"name": "Blue Ridge Sprint",     "distance": 6.5,  "elevation": 220,  "difficulty": "easy",     "is_open": False},
+        {"name": "Granite Peak Traverse", "distance": 18.3, "elevation": 1200, "difficulty": "hard",     "is_open": True},
+    ]
+    context = {"trails": trails}
+    return render(request, "catalog.html", context)
