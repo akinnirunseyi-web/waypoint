@@ -89,3 +89,56 @@ p {
     margin-bottom: 0.8rem;
     line-height: 1.6;
 }
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: #2e7d32;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.catalog-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.catalog-table th,
+.catalog-table td {
+    border: 1px solid #ddd;
+    padding: 0.6rem 1rem;
+    text-align: left;
+}
+
+.catalog-table th {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.catalog-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.badge-open {
+    background-color: #c8e6c9;
+    color: #1b5e20;
+}
+
+.badge-closed {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+}
+
+.badge-hard {
+    background-color: #ff8f00;
+    color: white;
+}
