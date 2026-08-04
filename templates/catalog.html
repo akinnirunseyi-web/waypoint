@@ -4,8 +4,9 @@
 
 {% block content %}
     <h1>Trail Catalog</h1>
-    <p>Showing {{ trails|length }} trails</p>
+    <p>Showing {{ trails.count }} open trails</p>
 
+    {% if trails %}
     <table class="catalog-table">
         <thead>
             <tr>
@@ -22,8 +23,8 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ trail.name }}</td>
-                <td>{{ trail.distance|floatformat:1 }}</td>
-                <td>{{ trail.elevation }}</td>
+                <td>{{ trail.distance_km|floatformat:1 }}</td>
+                <td>{{ trail.elevation_gain }}</td>
                 <td>
                     {% if trail.difficulty == "expert" %}
                         <span class="badge badge-hard">HARD</span>
@@ -42,4 +43,7 @@
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        <p>No trails available at this time. Please check again soon.</p>
+    {% endif %}
 {% endblock %}
