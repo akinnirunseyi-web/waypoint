@@ -49,9 +49,11 @@ Then go to: **http://127.0.0.1:8000/admin/**
 ## Pages
 
 | URL | Description |
-
+|-----|-------------|
 | `/` | Homepage |
 | `/catalog/` | Trail catalog (from database) |
+| `/trails/parks/` | Browse all parks |
+| `/trails/parks/<id>/` | Trails in a specific park |
 | `/report/` | Report a trail form |
 | `/search/` | Search trails |
 | `/admin/` | Admin panel (superuser only) |
@@ -76,3 +78,11 @@ waypoint/ — Django project settings folder
 manage.py — Django command-line tool
 requirements.txt — Pinned dependencies
 .gitignore — Excludes env/, db.sqlite3, pycache
+
+## Data Model
+
+- **Park** — name, region
+- **Trail** — name, distance_km, elevation_gain, difficulty, is_open, added
+- **Relationship** — each Trail belongs to a Park via ForeignKey (SET_NULL)
+  - Deleting a park does not delete its trails
+  - Trails can exist without a park (null=True)
