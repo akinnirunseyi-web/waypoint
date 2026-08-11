@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Parks — Waypoint{% endblock %}
+
+{% block content %}
+    <h1>Parks</h1>
+    <p>Browse trails by park.</p>
+
+    {% if parks %}
+    <table class="catalog-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Park Name</th>
+                <th>Region</th>
+                <th>Trails</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for park in parks %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    <a href="{% url 'park-detail' park.id %}">
+                        {{ park.name }}
+                    </a>
+                </td>
+                <td>{{ park.region }}</td>
+                <td>{{ park.trails.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No parks have been added yet.</p>
+    {% endif %}
+{% endblock %}

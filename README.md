@@ -37,6 +37,25 @@ python3 manage.py runserver
 
 Open your browser at: **http://127.0.0.1:8000**
 
+### Admin access
+Create a superuser to manage trails via the admin panel:
+```bash
+python3 manage.py createsuperuser
+```
+Then go to: **http://127.0.0.1:8000/admin/**
+
+---
+
+## Pages
+
+| URL | Description |
+
+| `/` | Homepage |
+| `/catalog/` | Trail catalog (from database) |
+| `/report/` | Report a trail form |
+| `/search/` | Search trails |
+| `/admin/` | Admin panel (superuser only) |
+
 ---
 
 ## MVT Pattern
