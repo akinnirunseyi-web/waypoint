@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Trail Catalog — Waypoint{% endblock %}
+{% block title %}{{ park.name }} — Waypoint{% endblock %}
 
 {% block content %}
-    <h1>Trail Catalog</h1>
-    <p>Showing {{ trails.count }} open trails</p>
+    <h1>{{ park.name }}</h1>
+    <p><strong>Region:</strong> {{ park.region }}</p>
+
+    <h2 style="margin-top: 1.5rem;">Trails in this park</h2>
 
     {% if trails %}
     <table class="catalog-table">
@@ -12,7 +14,6 @@
             <tr>
                 <th>#</th>
                 <th>Trail Name</th>
-                <th>Park</th>
                 <th>Distance (km)</th>
                 <th>Elevation (m)</th>
                 <th>Difficulty</th>
@@ -24,15 +25,6 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ trail.name }}</td>
-                <td>
-                    {% if trail.park %}
-                        <a href="{% url 'park-detail' trail.park.id %}">
-                            {{ trail.park.name }}
-                        </a>
-                    {% else %}
-                        —
-                    {% endif %}
-                </td>
                 <td>{{ trail.distance_km|floatformat:1 }}</td>
                 <td>{{ trail.elevation_gain }}</td>
                 <td>
@@ -54,6 +46,10 @@
         </tbody>
     </table>
     {% else %}
-        <p>No trails available at this time.</p>
+        <p>No trails have been added to this park yet.</p>
     {% endif %}
+
+    <a href="{% url 'parks' %}" class="btn" style="margin-top:1rem;">
+        Back to Parks
+    </a>
 {% endblock %}
