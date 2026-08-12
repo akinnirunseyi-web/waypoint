@@ -86,3 +86,18 @@ requirements.txt — Pinned dependencies
 - **Relationship** — each Trail belongs to a Park via ForeignKey (SET_NULL)
   - Deleting a park does not delete its trails
   - Trails can exist without a park (null=True)
+
+  ## Running Tests
+
+```bash
+python3 manage.py test
+```
+
+The test suite covers:
+Catalog query returns only open trails
+Closed trails are excluded from the catalog
+Park detail page returns 200 for valid park
+Park detail page returns 404 for invalid park id
+Distance domain class rejects negative magnitudes
+Distance addition returns correct sum
+Distance convert round-trip stays within tolerance
